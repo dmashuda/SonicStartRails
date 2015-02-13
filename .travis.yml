@@ -1,1 +1,6 @@
 language: ruby
+
+notifications:
+  slack:
+    rooms:
+      - sonicstart:W4EazUMcL9NuBkM87g5fjTm2#production
