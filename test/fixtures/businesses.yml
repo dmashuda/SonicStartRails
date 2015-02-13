@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  summary: MyText
+  tagLine: MyString
+  hoursOfOpperation: MyString
+  serviceValidTil: 2015-02-13
+  domain: MyString
+
+two:
+  name: MyString
+  summary: MyText
+  tagLine: MyString
+  hoursOfOpperation: MyString
+  serviceValidTil: 2015-02-13
+  domain: MyString
