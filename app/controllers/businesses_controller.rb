@@ -1,16 +1,15 @@
 class BusinessesController < ApplicationController
-  before_action :set_business, only: [:show, :edit, :update, :destroy]
+  before_action :set_business, only: [:new, :show, :edit, :update, :destroy]
 
   # GET /businesses
   # GET /businesses.json
   def index
     if signed_in?
       if current_user.business
-        redirect_to "/businesses/edit"
+        redirect_to action: "edit", id: current_user.business[:id]
       else
-        redirect_to "/businesses/new"
+        redirect_to action: "new"
       end
-
     else
       redirect_to "/signin"
     end
@@ -19,10 +18,16 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
+
   end
 
   # GET /businesses/new
   def new
+    if @business
+      respond_to do |format|
+        format.html { redirect_to action: edit, notice: 'You may only have one business.' }
+      end
+    end
     @business = current_user.create_business
   end
 
@@ -74,9 +79,17 @@ class BusinessesController < ApplicationController
     end
   end
 
+  def signed_in?
+    !current_user.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_business
+      if !signed_in?
+        redirect_to "/signin"
+      end
+
       @business = current_user.business
     end
 

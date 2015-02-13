@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :addresses
+
   resources :businesses
 
   devise_for :users, :skip => [:sessions]
