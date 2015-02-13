@@ -4,7 +4,16 @@ class BusinessesController < ApplicationController
   # GET /businesses
   # GET /businesses.json
   def index
-    @businesses = Business.all
+    if signed_in?
+      if current_user.business
+        redirect_to "/businesses/edit"
+      else
+        redirect_to "/businesses/new"
+      end
+
+    else
+      redirect_to "/signin"
+    end
   end
 
   # GET /businesses/1
@@ -14,17 +23,21 @@ class BusinessesController < ApplicationController
 
   # GET /businesses/new
   def new
-    @business = Business.new
+    @business = current_user.create_business
   end
 
   # GET /businesses/1/edit
   def edit
+
   end
 
   # POST /businesses
   # POST /businesses.json
   def create
+
+
     @business = Business.new(business_params)
+    @business[:user_id] = current_user[:id]
 
     respond_to do |format|
       if @business.save
@@ -64,11 +77,11 @@ class BusinessesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_business
-      @business = Business.find(params[:id])
+      @business = current_user.business
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
-      params.require(:business).permit(:name, :summary, :tagLine, :hoursOfOpperation, :serviceValidTil, :domain)
+      params.require(:business).permit(:name, :summary, :tagLine, :hoursOfOpperation, :domain)
     end
 end
