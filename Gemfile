@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 
+gem "twitter-bootstrap-rails"
 gem 'will_paginate-bootstrap'
 gem 'will_paginate'
 
@@ -41,7 +42,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-group :development, :test do
+group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
