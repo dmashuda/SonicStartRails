@@ -3,9 +3,7 @@ Rails.application.routes.draw do
 
   resources :addresses
 
-  resources :businesses do
-    resources :addresses, shallow: true
-  end
+  resources :businesses
 
   devise_for :users, :skip => [:sessions]
   as :user do

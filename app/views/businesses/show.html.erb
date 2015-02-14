@@ -1,33 +1,20 @@
 
-<p>
-  <strong>Name:</strong>
-  <%= @business.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Name</dt>
+  <dd><%= @business.name %></dd>
+  <dt>Summary</dt>
+  <dd><%= @business.summary %></dd>
+  <dt>Tagline</dt>
+  <dd><%= @business.tagLine %></dd>
+  <dt>Hours of Opperations</dt>
+  <dd><%= @business.hoursOfOpperation %></dd>
+  <dt>Service Valid Til</dt>
+  <dd><%= @business.serviceValidTil %></dd>
+  <dt>Domain</dt>
+  <dd><%= @business.domain %></dd>
 
-<p>
-  <strong>Summary:</strong>
-  <%= @business.summary %>
-</p>
+</dl>
 
-<p>
-  <strong>Tagline:</strong>
-  <%= @business.tagLine %>
-</p>
-
-<p>
-  <strong>Hoursofopperation:</strong>
-  <%= @business.hoursOfOpperation %>
-</p>
-
-<p>
-  <strong>Servicevalidtil:</strong>
-  <%= @business.serviceValidTil %>
-</p>
-
-<p>
-  <strong>Domain:</strong>
-  <%= @business.domain %>
-</p>
 
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
