@@ -4,7 +4,11 @@ class AddressesController < ApplicationController
   # GET /addresses
   # GET /addresses.json
   def index
-    @addresses = current_user.business.addresses.all
+    if signed_in?
+      @addresses = current_user.business.addresses.all
+    else
+      redirect_to "/signin"
+    end
   end
 
   # GET /addresses/1
@@ -19,6 +23,13 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1/edit
   def edit
+    if current_user.business[:id] != @address.business_id
+      respond_to do |format|
+        format.html { redirect_to @address, notice: 'You can only edit your addresses' }
+        format.json { render json: @address.errors, status: :unprocessable_entity }
+      end
+
+    end
   end
 
   # POST /addresses
