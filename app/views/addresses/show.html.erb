@@ -1,3 +1,30 @@
+
+<%= stylesheet_link_tag "maps" %>
+<%=javascript_include_tag("https://maps.googleapis.com/maps/api/js")%>
+<script type="text/javascript">
+
+
+    function initialize() {
+
+        var myLatlng = new google.maps.LatLng(<%= @address.latitude%>,<%=@address.longitude%>);
+
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: '<%= @address.latitude%>'
+        });
+    }
+        //do work
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -29,6 +56,10 @@
   <strong>Business:</strong>
   <%= @address.business_id %>
 </p>
+
+<div id="map-container">
+  <div id="map-canvas"></div>
+</div>
 
 <%= link_to 'Edit', edit_address_path(@address) %> |
 <%= link_to 'Back', addresses_path %>
