@@ -24,7 +24,7 @@
         <td><%= address.country %></td>
         <td><%= address.postal_code %></td>
         <td><%= address.business_id %></td>
-        <td><%= link_to 'Show', url_for(address)%></td>
+        <td><%= link_to 'Show', url_for(address), method: :get%></td>
         <td><%= link_to 'Edit', [:edit, address] %></td>
         <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
