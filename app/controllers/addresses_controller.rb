@@ -38,6 +38,8 @@ class AddressesController < ApplicationController
     @address = Address.new(address_params)
     @address[:business_id] = current_user.business[:id];
 
+
+
     respond_to do |format|
       if @address.save
         format.html { redirect_to @address, notice: 'Address was successfully created.' }
