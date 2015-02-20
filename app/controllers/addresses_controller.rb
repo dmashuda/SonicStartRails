@@ -1,15 +1,11 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: :show
+  before_filter :authenticate_user!
 
   # GET /addresses
   # GET /addresses.json
   def index
-    if signed_in?
-      @addresses = current_user.business.addresses.all
-    else
-      redirect_to "/signin"
-    end
+    @addresses = current_user.business.addresses.all
   end
 
   # GET /addresses/1
@@ -24,22 +20,12 @@ class AddressesController < ApplicationController
 
   # GET /addresses/1/edit
   def edit
-    if current_user.business[:id] != @address.business_id
-      respond_to do |format|
-        format.html { redirect_to @address, notice: 'You can only edit your addresses' }
-        format.json { render json: @address.errors, status: :unprocessable_entity }
-      end
-
-    end
   end
 
   # POST /addresses
   # POST /addresses.json
   def create
-    @address = Address.new(address_params)
-    @address[:business_id] = current_user.business[:id];
-
-
+    @address = current_user.business.addresses.new(address_params)
 
     respond_to do |format|
       if @address.save
@@ -79,11 +65,12 @@ class AddressesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_address
-      @address = Address.find(params[:id])
+      @address = current_user.business.addresses.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def address_params
       params.require(:address).permit(:street, :city, :geographicalRegion, :country, :postal_code)
     end
+
 end

@@ -18,7 +18,6 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-
   end
 
   # GET /businesses/new
@@ -26,6 +25,7 @@ class BusinessesController < ApplicationController
     if @business
       respond_to do |format|
         format.html { redirect_to action: edit, notice: 'You may only have one business.' }
+        ormat.json { render json: @business.errors, status: :unprocessable_entity }
       end
     end
     @business = current_user.create_business
@@ -39,10 +39,7 @@ class BusinessesController < ApplicationController
   # POST /businesses
   # POST /businesses.json
   def create
-
-
-    @business = Business.new(business_params)
-    @business[:user_id] = current_user[:id]
+    @business = current_user.business.create(business_params);
 
     respond_to do |format|
       if @business.save
