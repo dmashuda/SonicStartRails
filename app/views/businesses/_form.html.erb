@@ -1,41 +1,60 @@
-<%= form_for @business , :html => {:class => "form-horizontal"} do |f|%>
-  <% if @business.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h2>
+<%= form_for @business, :html => { :class => "form-horizontal business" } do |f| %>
 
-      <ul>
-      <% @business.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @business.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @business.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@business[:name]) %>
   </div>
-  <div class="field">
-    <%= f.label :summary %><br>
-    <%= f.text_area :summary %>
+  <div class="control-group">
+    <%= f.label :summary, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :summary, :class => 'form-control' %>
+    </div>
+    <%= error_span(@business[:summary]) %>
   </div>
-  <div class="field">
-    <%= f.label :tagLine %><br>
-    <%= f.text_field :tagLine %>
+  <div class="control-group">
+    <%= f.label :tagLine, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tagLine, :class => 'form-control' %>
+    </div>
+    <%= error_span(@business[:tagLine]) %>
   </div>
-  <div class="field">
-    <%= f.label :hoursOfOpperation %><br>
-    <%= f.text_field :hoursOfOpperation %>
+  <div class="control-group">
+    <%= f.label :hoursOfOpperation, 'Hours Of Operation', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hoursOfOpperation, :class => 'form-control' %>
+    </div>
+    <%= error_span(@business[:hoursOfOpperation]) %>
   </div>
-  <div class="field">
-    <%= f.label :serviceValidTil %><br>
-    <%= @business.serviceValidTil %>
+  <div class="control-group">
+    <%= f.label :domain, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :domain,:class => 'form-control' %>
+    </div>
+    <%= error_span(@business[:domain]) %>
   </div>
-  <div class="field">
-    <%= f.label :domain %><br>
-    <%= f.text_field :domain %>
-  </div>
-  <div>
-    <%= f.submit :fname, class: "btn btn-default btn-lg" %>
-  </div>
+
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            businesses_path, :class => 'btn btn-default' %>
+
 <% end %>
