@@ -11,26 +11,22 @@
       <th><%= model_class.human_attribute_name(:geographicalRegion) %></th>
       <th><%= model_class.human_attribute_name(:country) %></th>
       <th><%= model_class.human_attribute_name(:postal_code) %></th>
-      <th><%= model_class.human_attribute_name(:business_id) %></th>
       <th><%= model_class.human_attribute_name(:latitude) %></th>
       <th><%= model_class.human_attribute_name(:longitude) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @addresses.each do |address| %>
       <tr>
-        <td><%= link_to address.id, address_path(address) %></td>
+        <td><%= link_to address.id, address_path(address), method: :get %></td>
         <td><%= address.street %></td>
         <td><%= address.city %></td>
         <td><%= address.geographicalRegion %></td>
         <td><%= address.country %></td>
         <td><%= address.postal_code %></td>
-        <td><%= address.business_id %></td>
-        <td><%= address.latitude %></td>
-        <td><%= address.longitude %></td>
-        <td><%=l address.created_at %></td>
+        <td><%= number_with_precision(address.latitude, precision: 2) %></td>
+        <td><%= number_with_precision(address.longitude, precision:2) %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_address_path(address), :class => 'btn btn-default btn-xs' %>
