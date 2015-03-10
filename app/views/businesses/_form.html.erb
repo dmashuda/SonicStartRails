@@ -1,3 +1,5 @@
+<%- model_class = Business -%>
+
 <%= form_for @business, :html => { :class => "form-horizontal business" } do |f| %>
 
     <% if @business.errors.any? %>
@@ -37,7 +39,7 @@
     <%= error_span(@business[:tagLine]) %>
   </div>
   <div class="control-group">
-    <%= f.label :hoursOfOpperation, 'Hours Of Operation', :class => 'control-label' %>
+    <%= f.label :hoursOfOpperation, model_class.human_attribute_name(:hoursOfOpperation), :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :hoursOfOpperation, :class => 'form-control' %>
     </div>
