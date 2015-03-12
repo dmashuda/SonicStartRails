@@ -28,6 +28,7 @@ gem 'devise'
 gem 'geocoder'
 gem "twitter-bootstrap-rails"
 gem 'will_paginate-bootstrap'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'will_paginate'
 
 # Use ActiveModel has_secure_password
