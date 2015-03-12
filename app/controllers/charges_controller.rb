@@ -21,6 +21,9 @@ class ChargesController < ApplicationController
     )
     @business = current_user.business
 
+    if !@business.serviceValidTil
+      @business.serviceValidTil = Date.today
+    end
 
 
     if @business.serviceValidTil < (Date.today)
