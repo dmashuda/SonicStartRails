@@ -9,7 +9,15 @@
     <%= render :partial => 'form' %>
   </div>
   <div class="col-sm-8">
-    <h3>Service Valid till: <%= @business.serviceValidTil %></h3>
+
+    <% if @business.serviceValidTil%>
+            <h3>Service Valid till:
+            <%= @business.serviceValidTil %>
+            </h3>
+    <% else %>
+        <h3>Service Not Valid, please make payment
+        </h3>
+    <% end %>
 
     </br>
     <%= form_tag charges_path do %>
@@ -19,11 +27,37 @@
             <span>Add 1 year of service : $150.00</span>
           </label>
         </article>
+        <script src="https://checkout.stripe.com/checkout.js"></script>
 
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-description="A year subscription"
-                data-amount="15000"></script>
+        <button class="btn btn-primary" id="stripeCheckout">Purchase</button>
+
+        <script>
+            var handler = StripeCheckout.configure({
+                key: '<%= Rails.configuration.stripe[:publishable_key] %>',
+                image: '<%= image_path 'sonicIcon.png'%>',
+                token: function(token) {
+                    // Use the token to create the charge with a server-side script.
+                    // You can access the token ID with `token.id`
+                }
+            });
+
+            $('#stripeCheckout').on('click', function(e) {
+                // Open Checkout with further options
+                handler.open({
+                    name: 'Sonic Start',
+                    email: '<%= current_user.email%>',
+                    description: '1 Year of Service',
+                    zipCode: true,
+                    amount: 15000
+                });
+                e.preventDefault();
+            });
+
+            // Close Checkout on page navigation
+            $(window).on('popstate', function() {
+                handler.close();
+            });
+        </script>
     <% end %>
   </div>
 
