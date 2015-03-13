@@ -1,6 +1,6 @@
 <%- model_class = Business -%>
 
-<%= form_for @business, :html => { :class => "form-horizontal business" } do |f| %>
+<%= form_for( @business, multipart: true ,:html => { :class => "form-horizontal business" } )do |f| %>
 
     <% if @business.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -16,8 +16,9 @@
       </div>
     </div>
   <% end %>
+    <%= image_tag @business.logo.url, size: "100" %>
 
-  <div class="control-group">
+    <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name, :class => 'form-control' %>
@@ -52,6 +53,11 @@
     </div>
     <%= error_span(@business[:domain]) %>
   </div>
+
+    <div class="field">
+      <%= f.label :logo %>
+      <%= f.file_field :logo %>
+    </div>
 
 
 
