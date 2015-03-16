@@ -3,7 +3,23 @@
   <h1><%= t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
 
-<button class="btn btn-link" onclick="sonicstart.rails.business.show_hours()">Something</button>
+<button id="form_toggle" class="btn btn-info" onclick="sonicstart.rails.business.show_hours()">Toggle Edit</button>
+
+
+<% if @business.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @business.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+<% end %>
 
 <div class="row">
   <div class="col-sm-4">
