@@ -27,13 +27,6 @@
     <%= error_span(@business[:tagLine]) %>
   </div>
   <div class="control-group">
-    <%= f.label :hoursOfOpperation, model_class.human_attribute_name(:hoursOfOpperation), :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :hoursOfOpperation, :class => 'form-control' %>
-    </div>
-    <%= error_span(@business[:hoursOfOpperation]) %>
-  </div>
-  <div class="control-group">
     <%= f.label :domain, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :domain,:class => 'form-control' %>
