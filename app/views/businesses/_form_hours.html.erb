@@ -1,0 +1,100 @@
+<%- model_class = Business -%>
+
+<%= form_for( @business, multipart: true ,:html => { :class => "form-horizontal business" } )do |f| %>
+
+    <% if @business.errors.any? %>
+        <div id="error_expl" class="panel panel-danger">
+          <div class="panel-heading">
+            <h3 class="panel-title"><%= pluralize(@business.errors.count, "error") %> prohibited this business from being saved:</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+              <% @business.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+    <div class="control-group">
+      <%= f.label :monday_hours, :class => 'control-label' %>
+      <div class="controls">
+        <label class="time">
+          <%= f.time_select :monday_hours,:class => 'form-control' %>
+        </label>
+        to
+        <%= f.time_select :monday_hours_close,:class => 'form-control' %>
+      </div>
+      <%= error_span(@business[:monday_hours]) %>
+      <%= error_span(@business[:monday_hours_close]) %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :tuesday_hours, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.time_select :tuesday_hours,:class => 'form-control' %>
+        to
+        <%= f.time_select :tuesday_hours_close,:class => 'form-control' %>
+      </div>
+      <%= error_span(@business[:tuesday_hours]) %>
+      <%= error_span(@business[:tuesday_hours_close]) %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :wednesday_hours, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.time_select :wednesday_hours,:class => 'form-control' %>
+        to
+        <%= f.time_select :wednesday_hours_close,:class => 'form-control' %>
+      </div>
+      <%= error_span(@business[:wednesday_hours]) %>
+      <%= error_span(@business[:wednesday_hours_close]) %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :thursday_hours, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.time_select :thursday_hours,:class => 'form-control' %>
+        to
+        <%= f.time_select :thursday_hours_close,:class => 'form-control' %>
+      </div>
+      <%= error_span(@business[:thursday_hours]) %>
+      <%= error_span(@business[:thursday_hours_close]) %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :friday_hours, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.time_select :friday_hours,:class => 'form-control' %>
+        to
+        <%= f.time_select :friday_hours_close,:class => 'form-control' %>
+      </div>
+      <%= error_span(@business[:friday_hours]) %>
+      <%= error_span(@business[:friday_hours_close]) %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :saturday_hours, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.time_select :saturday_hours,:class => 'form-control' %>
+        to
+        <%= f.time_select :saturday_hours_close,:class => 'form-control' %>
+      </div>
+      <%= error_span(@business[:saturday_hours]) %>
+      <%= error_span(@business[:saturday_hours_close]) %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :sunday_hours, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.time_select :sunday_hours,:class => 'form-control' %>
+        to
+        <%= f.time_select :sunday_hours_close,:class => 'form-control' %>
+
+      </div>
+      <%= error_span(@business[:sunday_hours]) %>
+      <%= error_span(@business[:sunday_hours_close]) %>
+    </div>
+    <%= f.submit "Save Changes", :class => 'btn btn-primary' %>
+
+<% end %>

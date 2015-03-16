@@ -16,7 +16,7 @@
       </div>
     </div>
   <% end %>
-    <%= image_tag @business.logo.url, size: "100" %>
+    <%= image_tag @business.logo.url, size: "100", :class => 'img-rounded'%>
 
     <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
@@ -59,8 +59,6 @@
       <%= f.file_field :logo %>
     </div>
 
-
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= f.submit "Save Changes", :class => 'btn btn-primary' %>
 
 <% end %>

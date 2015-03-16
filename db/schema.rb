@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312232340) do
+ActiveRecord::Schema.define(version: 20150316155407) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "street"
@@ -35,13 +35,27 @@ ActiveRecord::Schema.define(version: 20150312232340) do
     t.string   "hoursOfOpperation"
     t.date     "serviceValidTil"
     t.string   "domain"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "user_id"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.time     "sunday_hours"
+    t.time     "monday_hours"
+    t.time     "tuesday_hours"
+    t.time     "wednesday_hours"
+    t.time     "thursday_hours"
+    t.time     "friday_hours"
+    t.time     "saturday_hours"
+    t.time     "sunday_hours_close"
+    t.time     "monday_hours_close"
+    t.time     "tuesday_hours_close"
+    t.time     "wednesday_hours_close"
+    t.time     "thursday_hours_close"
+    t.time     "friday_hours_close"
+    t.time     "saturday_hours_close"
   end
 
   add_index "businesses", ["user_id"], name: "index_businesses_on_user_id"

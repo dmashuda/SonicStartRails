@@ -94,6 +94,8 @@ class BusinessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
-      params.require(:business).permit(:name, :summary, :tagLine, :hoursOfOpperation, :domain, :logo)
+      params.require(:business).permit(:name, :summary, :tagLine, :domain, :logo,
+                                       :sunday_hours, :monday_hours, :tuesday_hours, :wednesday_hours, :thursday_hours, :friday_hours, :saturday_hours,
+                                       :sunday_hours_close, :monday_hours_close, :tuesday_hours_close, :wednesday_hours_close, :thursday_hours_close, :friday_hours_close, :saturday_hours_close,)
     end
 end

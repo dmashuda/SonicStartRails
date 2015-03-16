@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :businesses
   resources :service_items
 
+
   devise_for :users, :skip => [:sessions]
   as :user do
     get 'signin' => 'devise/sessions#new', :as => :new_user_session
