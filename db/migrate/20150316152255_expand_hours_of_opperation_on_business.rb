@@ -8,6 +8,6 @@ class ExpandHoursOfOpperationOnBusiness < ActiveRecord::Migration
     add_column :businesses, :friday_hours, :time
     add_column :businesses, :saturday_hours, :time
 
-    remove_column :businesses, :hoursOfOpperationdb
+    remove_column :businesses, :hoursOfOpperation
   end
 end
