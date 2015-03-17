@@ -1,60 +1,17 @@
-<%= form_for @address, :html => { :class => "form-horizontal address" } do |f| %>
-
-    <% if @address.errors.any? %>
-    <div id="error_expl" class="panel panel-danger">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@address.errors.count, "error") %> prohibited this address from being saved:</h3>
-      </div>
-      <div class="panel-body">
-        <ul>
-        <% @address.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
-
-  <div class="control-group">
-    <%= f.label :street, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :street, :class => 'form-control' %>
-    </div>
-    <%= error_span(@address[:street]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :city, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :city, :class => 'form-control' %>
-    </div>
-    <%= error_span(@address[:city]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :geographicalRegion, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :geographicalRegion, :class => 'form-control' %>
-    </div>
-    <%= error_span(@address[:geographicalRegion]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :country, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :country, :class => 'form-control' %>
-    </div>
-    <%= error_span(@address[:country]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :postal_code, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :postal_code, :class => 'form-control' %>
-    </div>
-    <%= error_span(@address[:postal_code]) %>
-  </div>
+<%= simple_form_for @address, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :street %>
+  <%= error_span(@address[:street]) %>
+  <%= f.input :city %>
+  <%= error_span(@address[:city]) %>
+  <%= f.input :geographicalRegion %>
+  <%= error_span(@address[:geographicalRegion]) %>
+  <%= f.input :country %>
+  <%= error_span(@address[:country]) %>
+  <%= f.input :postal_code %>
+  <%= error_span(@address[:postal_code]) %>
 
 
-
-  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            addresses_path, :class => 'btn btn-default' %>
-
+                addresses_path, :class => 'btn btn-default' %>
 <% end %>
