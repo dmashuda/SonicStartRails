@@ -1,5 +1,6 @@
 class ServiceItemsController < ApplicationController
   before_action :set_service_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_list_items, only: [:edit, :new]
   before_filter :authenticate_user!
 
   # GET /service_items
@@ -16,6 +17,7 @@ class ServiceItemsController < ApplicationController
   # GET /service_items/new
   def new
     @service_item = current_user.business.service_items.new
+
   end
 
   # GET /service_items/1/edit
@@ -67,11 +69,16 @@ class ServiceItemsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_service_item
     @service_item = current_user.business.service_items.find(params[:id])
+
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def service_item_params
     params.require(:service_item).permit(:title, :summary, :price, :service_list_id)
+  end
+
+  def set_list_items
+    @service_lists = current_user.business.service_lists.all;
   end
 
 end
