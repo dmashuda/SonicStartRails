@@ -1,83 +1,52 @@
 <%- model_class = Business -%>
 
-<%= form_for( @business, multipart: true ,:html => { :class => 'form-horizontal business'} )do |f| %>
+<%= simple_form_for( @business, multipart: true ,:html => { :class => 'form-horizontal business'} )do |f| %>
 
-    <div>
-      <%= f.label :monday_hours %>
-      <div>
-        <%= f.time_select :monday_hours%>
-        to
-        <%= f.time_select :monday_hours_close%>
-      </div>
+    <div class='row datetimerange'>
+      <%= f.input :monday_hours, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :monday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
       <div class="has_error"><%= @business.errors[:monday_hours].join(', ') %></div>
     </div>
 
-
-    <div class="control-group">
-      <%= f.label :tuesday_hours, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.time_select :tuesday_hours,:class => 'form-control' %>
-        to
-        <%= f.time_select :tuesday_hours_close,:class => 'form-control' %>
-      </div>
-      <div class="has_error"><%= @business.errors[:tuesday_hours].join(", ") %></div>
+    <div class='row datetimerange'>
+      <%= f.input :tuesday_hours, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :tuesday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+      <div class="has_error"><%= @business.errors[:tuesday_hours].join(', ') %></div>
     </div>
 
-    <div class="control-group">
-      <%= f.label :wednesday_hours, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.time_select :wednesday_hours,:class => 'form-control' %>
-        to
-        <%= f.time_select :wednesday_hours_close,:class => 'form-control' %>
-      </div>
-      <div class="has_error"><%= @business.errors[:wednesday_hours].join(", ") %></div>
-
+    <div class='row datetimerange'>
+      <%= f.input :wednesday_hours, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :wednesday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+      <div class="has_error"><%= @business.errors[:wednesday_hours].join(', ') %></div>
     </div>
 
-    <div class="control-group">
-      <%= f.label :thursday_hours, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.time_select :thursday_hours,:class => 'form-control' %>
-        to
-        <%= f.time_select :thursday_hours_close,:class => 'form-control' %>
-      </div>
-      <div class="has_error"><%= @business.errors[:thursday_hours].join(", ") %></div>
 
+    <div class='row datetimerange'>
+      <%= f.input :thursday_hours, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :thursday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+      <div class="has_error"><%= @business.errors[:thursday_hours].join(', ') %></div>
     </div>
 
-    <div class="control-group">
-      <%= f.label :friday_hours, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.time_select :friday_hours,:class => 'form-control' %>
-        to
-        <%= f.time_select :friday_hours_close,:class => 'form-control' %>
-      </div>
-      <div class="has_error"><%= @business.errors[:friday_hours].join(", ") %></div>
-
+    <div class='row datetimerange'>
+      <%= f.input :friday_hours, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :friday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+      <div class="has_error"><%= @business.errors[:friday_hours].join(', ') %></div>
     </div>
 
-    <div class="control-group">
-      <%= f.label :saturday_hours, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.time_select :saturday_hours,:class => 'form-control' %>
-        to
-        <%= f.time_select :saturday_hours_close,:class => 'form-control' %>
-      </div>
-      <div class="has_error"><%= @business.errors[:saturday_hours].join(", ") %></div>
 
+    <div class='row datetimerange'>
+      <%= f.input :saturday_hours, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :saturday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+      <div class="has_error"><%= @business.errors[:saturday_hours].join(', ') %></div>
     </div>
 
-    <div class="control-group">
-      <%= f.label :sunday_hours, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.time_select :sunday_hours,:class => 'form-control' %>
-        to
-        <%= f.time_select :sunday_hours_close,:class => 'form-control' %>
 
-      </div>
-      <div class="has_error"><%= @business.errors[:sunday_hours].join(", ") %></div>
-
+    <div class='row datetimerange'>
+      <%= f.input :sunday_hours, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :sunday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+      <div class="has_error"><%= @business.errors[:sunday_hours].join(', ') %></div>
     </div>
+
 
 
     <%= f.submit "Save Changes", :class => 'btn btn-primary' %>

@@ -32,6 +32,13 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'will_paginate'
 gem 'date_validator'
 
+gem 'momentjs-rails'
+
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+
+gem 'simple_form'
+
+
 
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'

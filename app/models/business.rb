@@ -19,21 +19,21 @@ class Business < ActiveRecord::Base
 
 
   def init
-    self.sunday_hours = Time.new(2015, 02, 25, 9, 0, 0)
-    self.monday_hours = Time.new(2015, 02, 25, 9, 0, 0)
-    self.tuesday_hours = Time.new(2015, 02, 25, 9, 0, 0)
-    self.wednesday_hours= Time.new(2015, 02, 25, 9, 0, 0)
-    self.thursday_hours = Time.new(2015, 02, 25, 9, 0, 0)
-    self.friday_hours = Time.new(2015, 02, 25, 9, 0, 0)
-    self.saturday_hours = Time.new(2015, 02, 25, 9, 0, 0)
+    self.sunday_hours ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.monday_hours  ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.tuesday_hours  ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.wednesday_hours ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.thursday_hours ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.friday_hours ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.saturday_hours ||= Time.new(2015, 02, 25, 9, 0, 0)
 
-    self.sunday_hours_close = Time.new(2015, 02, 25, 17,0,0 )
-    self.monday_hours_close = Time.new(2015, 02, 25, 17,0,0 )
-    self.tuesday_hours_close = Time.new(2015, 02, 25, 17,0,0 )
-    self.wednesday_hours_close = Time.new(2015, 02, 25, 17,0,0 )
-    self.thursday_hours_close = Time.new(2015, 02, 25, 17,0,0 )
-    self.friday_hours_close = Time.new(2015, 02, 25, 17,0,0 )
-    self.saturday_hours_close = Time.new(2015, 02, 25, 17,0,0 )
+    self.sunday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.monday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.tuesday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.wednesday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.thursday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.friday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.saturday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
   end
 
 

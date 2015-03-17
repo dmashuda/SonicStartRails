@@ -21,3 +21,7 @@
 
 en:
   hello: "Hello world"
+
+  timepicker:
+      dformat: '%R'                   # display format of the time (this is the default, can be ommited)
+      pformat: 'h:mm a'
