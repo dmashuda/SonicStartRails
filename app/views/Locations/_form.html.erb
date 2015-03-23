@@ -11,7 +11,7 @@
   <%= error_span(@location[:postal_code]) %>
 
 
-  <%= f.button :submit, :class => 'btn-primary' %>
+    <%= f.submit "Save Changes", :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 location_path, :class => 'btn btn-default' %>
 <% end %>

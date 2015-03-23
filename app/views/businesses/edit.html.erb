@@ -3,9 +3,6 @@
   <h1><%= t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
 
-<button id="form_toggle" class="btn btn-info" onclick="sonicstart.rails.business.show_hours()">Toggle Edit</button>
-
-
 <% if @business.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
@@ -28,9 +25,6 @@
   <div class="col-sm-8" id = business_form>
     <%= render :partial => 'form' %>
   </div>
-    <div class="col-sm-6" id="hours_form" >
-      <%= render :partial => 'form_hours' %>
-    </div>
   <div class="col-sm-4">
 
     <% if @business.serviceValidTil%>

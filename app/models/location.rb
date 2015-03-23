@@ -9,4 +9,36 @@ class Location < ActiveRecord::Base
   def street_address
     [street, city, geographicalRegion, country].compact.join(', ')
   end
+
+  custom_message = 'Start Time must be before end time'
+
+  validates :monday_hours_open, date: {before: :monday_hours_close, message: custom_message}
+  validates :tuesday_hours_open, date: {before: :tuesday_hours_close}
+  validates :wednesday_hours_open, date: {before: :wednesday_hours_close}
+  validates :thursday_hours_open, date: {before: :thursday_hours_close}
+  validates :friday_hours_open, date: {before: :friday_hours_close}
+  validates :saturday_hours_open, date: {before: :saturday_hours_close}
+  validates :sunday_hours_open, date: {before: :sunday_hours_close}
+
+  after_initialize :init
+
+
+  def init
+    self.sunday_hours_open ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.monday_hours_open  ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.tuesday_hours_open  ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.wednesday_hours_open ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.thursday_hours_open ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.friday_hours_open ||= Time.new(2015, 02, 25, 9, 0, 0)
+    self.saturday_hours_open ||= Time.new(2015, 02, 25, 9, 0, 0)
+
+    self.sunday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.monday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.tuesday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.wednesday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.thursday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.friday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+    self.saturday_hours_close ||= Time.new(2015, 02, 25, 17,0,0 )
+  end
+
 end

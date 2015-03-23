@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323130128) do
+ActiveRecord::Schema.define(version: 20150323152951) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name"
@@ -20,27 +20,13 @@ ActiveRecord::Schema.define(version: 20150323130128) do
     t.string   "hoursOfOpperation"
     t.date     "serviceValidTil"
     t.string   "domain"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "user_id"
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
-    t.time     "sunday_hours"
-    t.time     "monday_hours"
-    t.time     "tuesday_hours"
-    t.time     "wednesday_hours"
-    t.time     "thursday_hours"
-    t.time     "friday_hours"
-    t.time     "saturday_hours"
-    t.time     "sunday_hours_close"
-    t.time     "monday_hours_close"
-    t.time     "tuesday_hours_close"
-    t.time     "wednesday_hours_close"
-    t.time     "thursday_hours_close"
-    t.time     "friday_hours_close"
-    t.time     "saturday_hours_close"
   end
 
   add_index "businesses", ["user_id"], name: "index_businesses_on_user_id"
@@ -52,10 +38,31 @@ ActiveRecord::Schema.define(version: 20150323130128) do
     t.string   "country"
     t.string   "postal_code"
     t.integer  "business_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.time     "sunday_hours_close"
+    t.time     "monday_hours_close"
+    t.time     "tuesday_hours_close"
+    t.time     "wednesday_hours_close"
+    t.time     "thursday_hours_close"
+    t.time     "friday_hours_close"
+    t.time     "saturday_hours_close"
+    t.time     "sunday_hours_open"
+    t.time     "monday_hours_open"
+    t.time     "tuesday_hours_open"
+    t.time     "wednesday_hours_open"
+    t.time     "thursday_hours_open"
+    t.time     "friday_hours_open"
+    t.time     "saturday_hours_open"
+    t.boolean  "sunday_is_open"
+    t.boolean  "monday_is_open"
+    t.boolean  "tuesday_is_open"
+    t.boolean  "wednesday_is_open"
+    t.boolean  "thursday_is_open"
+    t.boolean  "friday_is_open"
+    t.boolean  "saturday_is_open"
   end
 
   add_index "locations", ["business_id"], name: "index_locations_on_business_id"
