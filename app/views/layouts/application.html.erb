@@ -4,9 +4,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon"
-        type="image/png"
-        href="<%= image_path 'sonicIcon.png'%>">
   <title><%= content_for?(:title) ? yield(:title) : "SonicStart" %></title>
   <%= csrf_meta_tags %>
 
@@ -35,7 +32,7 @@
 
   <!-- For all other devices -->
   <!-- Size should be 32 x 32 pixels -->
-  <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+  <%= favicon_link_tag 'sonicIcon.png', :rel => 'shortcut icon' %>
 
   <%= javascript_include_tag "application" %>
 </head>
