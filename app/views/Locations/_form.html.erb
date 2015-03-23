@@ -10,6 +10,51 @@
   <%= f.input :postal_code %>
   <%= error_span(@location[:postal_code]) %>
 
+    <div class='row datetimerange'>
+      <%= f.input :monday_is_open %>
+      <%= f.input :monday_hours_open, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :monday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+    </div>
+
+    <div class='row datetimerange'>
+      <%= f.input :tuesday_is_open %>
+      <%= f.input :tuesday_hours_open, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :tuesday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+    </div>
+
+    <div class='row datetimerange'>
+      <%= f.input :wednesday_is_open %>
+      <%= f.input :wednesday_hours_open, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :wednesday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+    </div>
+
+
+    <div class='row datetimerange'>
+      <%= f.input :thursday_is_open %>
+      <%= f.input :thursday_hours_open, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :thursday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+    </div>
+
+    <div class='row datetimerange'>
+      <%= f.input :friday_is_open %>
+      <%= f.input :friday_hours_open, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :friday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+    </div>
+
+
+    <div class='row datetimerange'>
+      <%= f.input :saturday_is_open %>
+      <%= f.input :saturday_hours_open, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :saturday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+    </div>
+
+
+    <div class='row datetimerange'>
+      <%= f.input :sunday_is_open %>
+      <%= f.input :sunday_hours_open, as: :time_picker, wrapper: :ranged_datetime %>
+      <%= f.input :sunday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
+    </div>
+
 
     <%= f.submit "Save Changes", :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

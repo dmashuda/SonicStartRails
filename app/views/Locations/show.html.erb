@@ -25,6 +25,8 @@
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
+
+
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:street) %>:</strong></dt>
   <dd><%= @location.street %></dd>
@@ -42,6 +44,43 @@
   <dd><%= @location.latitude %></dd>
   <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
   <dd><%= @location.longitude %></dd>
+</dl>
+
+
+<h3>Hours:</h3>
+<% timeformat = '%I:%M %p'%>
+<dl class="dl-horizontal">
+  <% if @location.monday_is_open%>
+    <dt><strong>Monday:</strong></dt>
+    <dd><%= "#{@location.monday_hours_open.strftime(timeformat)} - #{@location.monday_hours_close.strftime(timeformat)}" %></dd>
+  <% end %>
+  <% if @location.tuesday_is_open%>
+      <dt><strong>Tuesday:</strong></dt>
+      <dd><%= "#{@location.tuesday_hours_open.strftime(timeformat)} - #{@location.tuesday_hours_close.strftime(timeformat)}" %></dd>
+  <%end%>
+  <% if @location.wednesday_is_open%>
+
+    <dt><strong>Wednesday:</strong></dt>
+  <dd><%= "#{@location.wednesday_hours_open.strftime(timeformat)} - #{@location.wednesday_hours_close.strftime(timeformat)}" %></dd>
+  <%end%>
+
+  <% if @location.thursday_is_open%>
+    <dt><strong>Thursday:</strong></dt>
+    <dd><%= "#{@location.thursday_hours_open.strftime(timeformat)} - #{@location.thursday_hours_close.strftime(timeformat)}" %></dd>
+  <%end%>
+  <% if @location.friday_is_open%>
+    <dt><strong>Friday:</strong></dt>
+    <dd><%= "#{@location.friday_hours_open.strftime(timeformat)} - #{@location.friday_hours_close.strftime(timeformat)}" %></dd>
+  <%end%>
+  <% if @location.saturday_is_open%>
+    <dt><strong>Saturday:</strong></dt>
+    <dd><%= "#{@location.saturday_hours_open.strftime(timeformat)} - #{@location.saturday_hours_close.strftime(timeformat)}" %></dd>
+  <%end%>
+  <% if @location.sunday_is_open%>
+
+    <dt><strong>Sunday:</strong></dt>
+    <dd><%= "#{@location.sunday_hours_open.strftime(timeformat)} - #{@location.sunday_hours_close.strftime(timeformat)}" %></dd>
+  <%end%>
 </dl>
 
 <div id="map-container">
