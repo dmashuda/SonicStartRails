@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :addresses
+  resources :locations
   resources :charges
   resources :businesses
   resources :service_items

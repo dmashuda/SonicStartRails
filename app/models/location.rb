@@ -1,4 +1,4 @@
-class Address < ActiveRecord::Base
+class Location < ActiveRecord::Base
   belongs_to :business
   after_validation :geocode
 

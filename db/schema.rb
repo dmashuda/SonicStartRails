@@ -11,22 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317004108) do
-
-  create_table "addresses", force: :cascade do |t|
-    t.string   "street"
-    t.string   "city"
-    t.string   "geographicalRegion"
-    t.string   "country"
-    t.string   "postal_code"
-    t.integer  "business_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.float    "latitude"
-    t.float    "longitude"
-  end
-
-  add_index "addresses", ["business_id"], name: "index_addresses_on_business_id"
+ActiveRecord::Schema.define(version: 20150323130128) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name"
@@ -59,6 +44,21 @@ ActiveRecord::Schema.define(version: 20150317004108) do
   end
 
   add_index "businesses", ["user_id"], name: "index_businesses_on_user_id"
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "street"
+    t.string   "city"
+    t.string   "geographicalRegion"
+    t.string   "country"
+    t.string   "postal_code"
+    t.integer  "business_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
+  add_index "locations", ["business_id"], name: "index_locations_on_business_id"
 
   create_table "service_items", force: :cascade do |t|
     t.string   "title"

@@ -1,0 +1,17 @@
+<%= simple_form_for @location, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :street %>
+  <%= error_span(@location[:street]) %>
+  <%= f.input :city %>
+  <%= error_span(@location[:city]) %>
+  <%= f.input :geographicalRegion %>
+  <%= error_span(@location[:geographicalRegion]) %>
+  <%= f.input :country %>
+  <%= error_span(@location[:country]) %>
+  <%= f.input :postal_code %>
+  <%= error_span(@location[:postal_code]) %>
+
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                location_path, :class => 'btn btn-default' %>
+<% end %>
