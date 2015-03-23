@@ -74,7 +74,7 @@ class ServiceItemsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def service_item_params
-    params.require(:service_item).permit(:title, :summary, :price, :service_list_id)
+    params.require(:service_item).permit(:title, :summary, :price, :service_list_id, :image)
   end
 
   def set_list_items
