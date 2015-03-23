@@ -58,7 +58,7 @@ class LocationsController < ApplicationController
     @location.destroy
     
     respond_to do |format|
-      format.html { redirect_to addresses_url, notice: 'Location was successfully destroyed.' }
+      format.html { redirect_to locations_path, notice: 'Location was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
