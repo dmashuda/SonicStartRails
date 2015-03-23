@@ -55,6 +55,6 @@
       <%= f.input :sunday_hours_close, as: :time_picker, wrapper: :ranged_datetime %>
     </div>
     <%= f.submit "Save Changes", :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                location_path, :class => 'btn btn-default' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                locations_path, :class => 'btn btn-default' %>
 <% end %>
