@@ -1,0 +1,12 @@
+<%= simple_form_for( @service_list, multipart: true ,:html => { :class => 'form-horizontal' }) do |f| %>
+    <%= f.input :title %>
+    <%= error_span(@service_list[:title]) %>
+    <%= f.input :comment %>
+    <%= error_span(@service_list[:comment]) %>
+    <%= f.input :rank%>
+    <%= error_span(@service_list[:rank]) %>
+
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                service_items_path, :class => 'btn btn-default' %>
+<% end %>

@@ -5,7 +5,7 @@
   <%= error_span(@service_item[:title]) %>
   <%= f.input :summary %>
   <%= error_span(@service_item[:summary]) %>
-  <%= f.input :price %>
+  <%= f.input :price%>
   <%= error_span(@service_item[:price]) %>
   <%= f.input :service_list_id, as: :select, collection: @service_lists %>
   <%= error_span(@service_item[:service_list_id]) %>

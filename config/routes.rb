@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :charges
   resources :businesses
   resources :service_items
+  resources :service_lists
 
 
   devise_for :users, :skip => [:sessions]
