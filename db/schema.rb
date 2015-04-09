@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323185013) do
+ActiveRecord::Schema.define(version: 20150409210543) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150323185013) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "service_list_name"
   end
 
   add_index "businesses", ["user_id"], name: "index_businesses_on_user_id"
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150323185013) do
     t.boolean  "thursday_is_open"
     t.boolean  "friday_is_open"
     t.boolean  "saturday_is_open"
+    t.string   "name"
   end
 
   add_index "locations", ["business_id"], name: "index_locations_on_business_id"

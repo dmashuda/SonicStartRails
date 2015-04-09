@@ -1,6 +1,10 @@
 <%= simple_form_for @location, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :street %>
-  <%= error_span(@location[:street]) %>
+
+    <%= f.input :name %>
+  <%= error_span(@location[:name]) %>
+
+    <%= f.input :street %>
+    <%= error_span(@location[:street]) %>
   <%= f.input :city %>
   <%= error_span(@location[:city]) %>
   <%= f.input :geographicalRegion %>

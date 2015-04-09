@@ -8,6 +8,7 @@
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag "themed" %>
 
+
   <link href="css/custom.css" rel="stylesheet">
 </head>
 <body>
@@ -37,41 +38,19 @@
   </section>
 </header>
 
-<section class="features text-center section-padding" id="features">
+<section class="features text-center section-padding" id="Locations">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <br />
-        <br />
-        <div class="features-wrapper">
-          <div class="col-md-4 wp2">
-            <div class="icon">
-              <i class="fa fa-laptop shadow"></i>
-            </div>
-            <h2>Simple</h2>
-            <p>
-              Enter your information and you're done. Give as much or as little information as you want.
-            </p>
-          </div>
-          <div class="col-md-4 wp2">
-            <div class="icon">
-              <i class="fa fa-usd shadow"></i>
-            </div>
-            <h2>Affordable</h2>
-            <p>
-              The small investment today, will payout tomorrow.
-            </p>
-          </div>
-          <div class="col-md-4 wp2">
-            <div class="icon">
-              <i class="fa fa-heart shadow"></i>
-            </div>
-            <h2>Visibility</h2>
-            <p>
-              Using SEO to allow you to reach more people.
-            </p>
-          </div>
-          <div class="clearfix"></div>
+            <h3>Locations</h3>
+        <%= render :partial => 'locations/mapMultipleLocation' %>
+        <% @locations.each do |loc| %>
+            <%= loc.street_address %> <br />
+        <%end%>
+
+
+
+      <div class="clearfix"></div>
         </div>
       </div>
     </div>
@@ -80,46 +59,34 @@
 
 
 
-<section id="GetStarted" class="text-center start-cta">
-  <h3>Getting started is as easy as entering things you already know. <br /><small>Enter your company's name to get started.</small></h3>
-  <form class="form-inline" role="form">
-    <div class="form-group">
-      <div class="input-group">
-        <label class="sr-only" for="BusinessName">Enter your Businesses Name: </label>
-        <input type="text" class="form-control" id="BusinessName" placeholder="Example: Sonic Start">
-      </div>
-    </div>
-    <button type="submit" class="btn btn-default">Go</button> <!-- save to cookie -->
-  </form>
-</section>
+<section id="Menu" class="text-center start-cta">
+  <h3><%= @business.service_list_name%></h3>
+  <% @service_lists.each do |list| %>
+      <%= list.title%>
+        <ul class="list-group">
+          <% list.service_items.each do |item| %>
+            <li class="list-group-item">
+                <span class="badge"><%= item.price%></span>
+                <%= item.title%>
+                <br />
+              <%= item.summary%>
+            </li>
+          <%end%>
+        </ul>
+  <%end%>
 
 
-<!--
-    <section id="About">
-        <h2>About Sonic Start</h2>
-        <p>
-            Text explaining about it...
-        </p>
     </section>
 
 
-
-    <section id="Team">
-        <h2>Team us...</h2>
-        Cols = number of team members, atm = 2.
-    </section>
--->
 <footer>
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <ul class="legals">
-          <li><a href="#">Terms &amp; Conditions</a></li> <!-- need to write up... -->
-          <li><a href="#">Legals</a></li> <!-- know anyone versed in law? -->
-        </ul>
+
       </div>
       <div class="col-md-6 credit">
-        <p>&copy; 2014 <!-- date() --> SonicStart, All Rights Reserved</p>
+        <p>&copy; 2015 <!-- date() --> SonicStart, All Rights Reserved</p>
       </div>
     </div>
   </div>

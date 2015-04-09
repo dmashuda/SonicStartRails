@@ -17,7 +17,7 @@
   <tbody>
     <% @locations.each do |address| %>
       <tr>
-        <td><%= link_to address.id, location_path(address), method: :get %></td>
+        <td><%= link_to address.name, address, method: :get %></td>
         <td><%= address.street %></td>
         <td><%= address.city %></td>
         <td><%= address.geographicalRegion %></td>
@@ -36,6 +36,8 @@
     <% end %>
   </tbody>
 </table>
+
+<%= render :partial => 'mapMultipleLocation' %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_location_path,

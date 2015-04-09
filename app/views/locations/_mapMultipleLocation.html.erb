@@ -1,0 +1,49 @@
+<%= stylesheet_link_tag "maps" %>
+<%=javascript_include_tag("https://maps.googleapis.com/maps/api/js")%>
+
+<div id="map-container">
+  <div id="map-canvas"></div>
+</div>
+
+<script type="text/javascript">
+    var locations = [
+        <% @locations.each do |loc| %>
+            ['<%=loc.name%>', <%=loc.latitude%>, <%=loc.longitude%>],
+        <% end %>
+    ];
+
+    var myLatlng = new google.maps.LatLng(<%= @locations[0].latitude%>,<%=@locations[0].longitude%>);
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'), {
+        center: myLatlng,
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+    var bounds = new google.maps.LatLngBounds();
+
+    for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+        });
+        bounds.extend(marker.position);
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+
+        if(i >0) {
+            map.fitBounds(bounds);
+        }
+
+
+    }
+</script>
+
