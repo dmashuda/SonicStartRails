@@ -5,6 +5,6 @@ class Business < ActiveRecord::Base
   has_many :service_lists
   has_attached_file :logo
   validates_attachment_content_type :logo, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-
+  validates :domain, uniqueness: true
 
 end

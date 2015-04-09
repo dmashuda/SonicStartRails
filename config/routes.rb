@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :businesses
   resources :service_items
   resources :service_lists
+  resources :web_viewer
 
 
   devise_for :users, :skip => [:sessions]
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'businesses#index'
+  root 'web_viewer#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
