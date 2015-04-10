@@ -1,10 +1,9 @@
 GIT
-  remote: git://github.com/zpaulovics/datetimepicker-rails.git
-  revision: e41ba7f805d1eca19153ff91b27423a4aff5e4b6
-  branch: master
-  submodules: true
+  remote: git://github.com/zpaulovics/datetimepicker-rails
+  revision: f0316e55d6a46794e56d5e636ea838c9eaef34cb
+  tag: v1.0.0
   specs:
-    datetimepicker-rails (4.3.5)
+    datetimepicker-rails (0.0.8)
 
 GIT
   remote: https://github.com/stripe/stripe-ruby

@@ -34,7 +34,7 @@ gem 'date_validator'
 
 gem 'momentjs-rails'
 
-gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'datetimepicker-rails', git: 'git://github.com/zpaulovics/datetimepicker-rails', tag: 'v1.0.0'
 
 gem 'simple_form'
 gem  'country_select'
