@@ -13,12 +13,12 @@ class Location < ActiveRecord::Base
   custom_message = 'Start Time must be before end time'
 
   validates :monday_hours_open, date: {before: :monday_hours_close, message: custom_message}
-  validates :tuesday_hours_open, date: {before: :tuesday_hours_close}
-  validates :wednesday_hours_open, date: {before: :wednesday_hours_close}
-  validates :thursday_hours_open, date: {before: :thursday_hours_close}
-  validates :friday_hours_open, date: {before: :friday_hours_close}
-  validates :saturday_hours_open, date: {before: :saturday_hours_close}
-  validates :sunday_hours_open, date: {before: :sunday_hours_close}
+  validates :tuesday_hours_open, date: {before: :tuesday_hours_close, message: custom_message}
+  validates :wednesday_hours_open, date: {before: :wednesday_hours_close, message: custom_message}
+  validates :thursday_hours_open, date: {before: :thursday_hours_close, message: custom_message}
+  validates :friday_hours_open, date: {before: :friday_hours_close, message: custom_message}
+  validates :saturday_hours_open, date: {before: :saturday_hours_close, message: custom_message}
+  validates :sunday_hours_open, date: {before: :sunday_hours_close, message: custom_message}
 
   after_initialize :init
 
