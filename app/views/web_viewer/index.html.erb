@@ -59,8 +59,10 @@
 
 
 <section id="Menu" class="text-center start-cta">
+  <div class="row">
   <h3><%= @business.service_list_name%></h3>
   <% @service_lists.each do |list| %>
+        <div class="col-sm-4">
       <%= list.title%>
         <ul class="list-group">
           <% list.service_items.each do |item| %>
@@ -72,7 +74,9 @@
             </li>
           <%end%>
         </ul>
+        </div>
   <%end%>
+  </div>
 
 
     </section>
