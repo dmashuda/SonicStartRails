@@ -38,6 +38,7 @@ gem 'datetimepicker-rails', git: 'git://github.com/zpaulovics/datetimepicker-rai
 
 gem 'simple_form'
 gem  'country_select'
+gem 'phony_rails'
 
 
 

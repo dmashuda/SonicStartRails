@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409210543) do
+ActiveRecord::Schema.define(version: 20150415024412) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150409210543) do
     t.boolean  "friday_is_open"
     t.boolean  "saturday_is_open"
     t.string   "name"
+    t.string   "phone_number"
   end
 
   add_index "locations", ["business_id"], name: "index_locations_on_business_id"

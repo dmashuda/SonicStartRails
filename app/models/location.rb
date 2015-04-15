@@ -4,6 +4,8 @@ class Location < ActiveRecord::Base
 
   validates :street,:city, :geographicalRegion, :country, :postal_code, :presence => true
 
+  validates :phone_number, :phony_plausible => true
+
   geocoded_by :street_address
 
   def street_address

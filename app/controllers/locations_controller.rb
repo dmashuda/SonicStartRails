@@ -71,7 +71,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def address_params
-      params.require(:location).permit(:street, :city, :geographicalRegion, :country, :postal_code, :name,
+      params.require(:location).permit(:street, :city, :geographicalRegion, :country, :postal_code, :name, :phone_number,
                                        :sunday_hours_open, :monday_hours_open, :tuesday_hours_open, :wednesday_hours_open, :thursday_hours_open, :friday_hours_open, :saturday_hours_open,
                                        :sunday_hours_close, :monday_hours_close, :tuesday_hours_close, :wednesday_hours_close, :thursday_hours_close, :friday_hours_close, :saturday_hours_close,
                                       :sunday_is_open, :monday_is_open, :tuesday_is_open, :wednesday_is_open, :thursday_is_open, :friday_is_open, :saturday_is_open,)

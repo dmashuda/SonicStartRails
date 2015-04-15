@@ -3,6 +3,9 @@
     <%= f.input :name %>
   <%= error_span(@location[:name]) %>
 
+    <%= f.input :phone_number, as: :tel, hint: 'Ex: 1-717-123-1234'%>
+    <%= error_span(@location[:phone_number]) %>
+
     <%= f.input :street %>
     <%= error_span(@location[:street]) %>
   <%= f.input :city %>
