@@ -5,6 +5,9 @@
         <h3><%= location.name %>:</h3>
         <%= link_to  location.street_address,
                     "http://maps.google.com/maps?saddr=#{URI.escape('Current Location')}&daddr=#{URI.escape(location.street_address)}", :target => '_blank' %>
+        <br />
+        <a href="tel://<%=location.phone_number%>"><%=location.phone_number%></a>
+
 
         <% timeformat = '%I:%M %p' %>
         <dl class="dl-horizontal">
