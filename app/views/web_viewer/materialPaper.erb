@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <title>Business.Name</title>
+  <%= stylesheet_link_tag "materialPaper" %>
+  <%= stylesheet_link_tag "bootstrap_and_overrides" %>
+
+</head>
+<body>
+<nav>
+
+
+  <ul>
+    <li>Menu</li>
+    <li>Locations</li>
+  </ul>
+
+</nav>
+<div class="openNav">
+  <div class="icon"></div>
+</div>
+
+<div class="wrapper">
+  <section>
+    <h1><%= @business.name%></h1>
+    <h2> <%= @business.tagLine %> </h2>
+    <%= render :partial => 'locations/mapMultipleLocation' %>
+    <%= render :partial => 'locations/fancyLocationHours' %>
+
+
+    <p><%= @business.summary %></p>
+    <div id="hoursOfOperation">
+      Business.OperationalHours
+    </div>
+
+    <div id="Contact">
+      <div class="phoneNumber">Business.PhoneNumber</div>
+      <address>
+        Business.Address
+      </address>
+      <map>
+        GoogleMaps
+      </map>
+    </div>
+
+  </section>
+
+
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    $(".openNav").click(function() {
+        $("body").toggleClass("navOpen");
+        $("nav").toggleClass("open");
+        $(".wrapper").toggleClass("open");
+        $(this).toggleClass("open");
+    });
+</script>
+<!--
+    For debugging purposes: Business.Tags , templateID
+-->
+
+</body>
+</html>
