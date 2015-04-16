@@ -7,6 +7,11 @@ class WebViewerController < ApplicationController
     @locations = @business.locations
     @service_lists = @business.service_lists
 
-    render :layout => false
+    if @business.template
+      render :template => @business.template, :layout => false
+    else
+      render :layout => false
+    end
+
   end
 end

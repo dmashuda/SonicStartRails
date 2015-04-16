@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415024412) do
+ActiveRecord::Schema.define(version: 20150415215204) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150415024412) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.string   "service_list_name"
+    t.string   "template"
   end
 
   add_index "businesses", ["user_id"], name: "index_businesses_on_user_id"
