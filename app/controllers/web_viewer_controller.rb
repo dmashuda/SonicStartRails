@@ -5,7 +5,12 @@ class WebViewerController < ApplicationController
 
     @business = Business.find_by_domain(hostname)
     if @business == nil
-      redirect_to "/signin"
+      if signed_in?
+        redirect_to "/signin"
+      else
+        redirect_to "/businesses"
+      end
+
       return
     end
     @locations = @business.locations
