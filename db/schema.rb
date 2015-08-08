@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20150415215204) do
     t.string   "name"
     t.text     "summary"
     t.string   "tagLine"
-    t.string   "hoursOfOpperation"
     t.date     "serviceValidTil"
     t.string   "domain"
     t.datetime "created_at",        null: false

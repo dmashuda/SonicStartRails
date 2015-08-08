@@ -3,7 +3,11 @@ class WebViewerController < ApplicationController
   def index
     hostname = request.host
 
-    @business = Business.find_by_domain(hostname) or redirect_to "/signin"
+    @business = Business.find_by_domain(hostname)
+    if @business == nil
+      redirect_to "/signin"
+      return
+    end
     @locations = @business.locations
     @service_lists = @business.service_lists.order(rank: :desc)
 
